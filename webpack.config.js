@@ -6,7 +6,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body'
 })
 module.exports = {
-  entry: './client/index.js',
+  entry: './client/src/index.jsx',
   output: {
     path: path.resolve('dist'),
     filename: 'index_bundle.js'

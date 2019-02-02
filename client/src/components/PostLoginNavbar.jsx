@@ -1,4 +1,4 @@
-import 'react'
+import React from 'react'
 
 const PostLoginNavbar = ({ }) => {
   return (

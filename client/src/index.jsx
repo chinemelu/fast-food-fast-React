@@ -1,14 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { store } from '../src/store';
-import routes from './routes';
-import './styles/styles.css';
+import { store } from './store';
+import Routes from './routes.jsx';
+import './styles/styles.scss';
 
 
 render(
-  <Provider store = {store}>
-    {routes}
+  <Provider store={store}>
+    {Routes}
   </Provider>,
   document.getElementById('root')
-)
+);

@@ -6,26 +6,18 @@ import {
 } from 'react-router-dom';
 
 import {
-  LoginPage,
-  SignupPage,
-  ChangePasswordPage,
-  CompleteRegistration,
-  Article,
-  ResetPassword,
-  HomePage,
-} from './views';
-import HomePageRedirect from './utilities/HomePageRedirect';
+  LayoutContainer,
+  PreLoginLayout
+} from './components/index.jsx';
+
+import {
+  LandingPageView
+} from './views/index.js';
 
 const routes = (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/login" component={HomePageRedirect(LoginPage)} />
-      <Route path="/signup/verify" component={CompleteRegistration} />
-      <Route path="/signup" component={HomePageRedirect(SignupPage)} />
-      <Route path="/create-article" component={Article} />
-      <Route path="/reset-password" component={ResetPassword} />
-      <Route path="/change/password" component={ChangePasswordPage} />
+      <LayoutContainer path="/login" component={LandingPageView} layout={PreLoginLayout} />
     </Switch>
   </BrowserRouter>
 );

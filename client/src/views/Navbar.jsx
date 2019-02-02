@@ -1,15 +1,17 @@
-import { Component } from 'react';
-import NoAuthNavbar from '../components/NoAuthNavbar'
+// import { Component } from 'react';
+// import NoAuthNavbar from '../components/NoAuthNavbar'
 
 
-class Navbar extends Component {
+// class Navbar extends Component {
 
-  returnAppropriateNavbar = () => {
+//   returnAppropriateNavbar = () => {
 
-  }
-  render() {
-    return (
+//   }
+//   render() {
+//     return (
 
-    )
-  }
-}
+//     )
+//   }
+// }
+
+// export default Navbar;

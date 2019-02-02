@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteFlashMessage } from '../actions/flashActions';
-import FlashMessage from './FlashMessage';
+import FlashMessage from './FlashMessage.jsx';
 
 
 export const FlashMessageList = (props) => {

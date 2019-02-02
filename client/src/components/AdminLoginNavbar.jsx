@@ -2,7 +2,7 @@ import 'react';
 
 const AdminLoginhNavbar = ({ }) => {
   return (
-
+    
   )
 }
 

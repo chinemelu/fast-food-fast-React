@@ -1,182 +1,158 @@
-import { Component } from 'react';
-import TextFieldGroup from './TextFieldGroup';
-import FlashMessageList from './FlashMessagesList';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Switcher from './Switcher.jsx';
+import FlashMessageList from './FlashMessagesList.jsx';
+import PreLoginNavbar from './PreLoginNavbar.jsx';
+import LoginForm from './LoginForm.jsx';
+import SignupForm from './SignupForm.jsx';
+import ForgotPasswordForm from './ForgotPasswordForm.jsx';
+import Burger from '../styles/images/burger.jpg';
+import Thai from '../styles/images/Thai.jpg';
+import chocolateBrownie
+  from '../styles/images/brownie-desert-cake-smaller.jpeg';
+import jollofRice from '../styles/images/Jollof-rice.png';
+
 class LandingPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.modal = React.createRef();
+  }
+
   render() {
+    const {
+      isLoginSectionShown,
+      isSignupSectionShown,
+      isForgotPasswordSectionShown,
+      isLoginRegistrationModalShown,
+      onClickForgotPasswordLink,
+      onClickLoginButton,
+      onClickSignupButton,
+      onClickLoginRegistrationNavLink,
+      isInputFieldEmpty,
+      handleOnChange,
+      handleOnBlur,
+      handleOutsideClick,
+      handleOnInput,
+      handleSignupOnBlur,
+      handleSignupOnInput,
+      onSubmit,
+      loginErrors,
+      signupErrors,
+      isLoading
+    } = this.props;
     return (
-      <div className="landingpage-modal">
-        <div className="landingpage-modal-container">
-          <ul className="switcher">
-            <li><Link href="#" className="cd-login">Login</Link></li>
-            <li><Link href="#" className="cd-register">Register</Link></li>
-          </ul>
+      <React.Fragment>
+        <PreLoginNavbar
+          onClickLoginRegistrationNavLink={onClickLoginRegistrationNavLink}
+        />
+        <FlashMessageList />
 
-          <section id="login-section">
-            <FlashMessageList />
-            <form className="cd-form" autocomplete="off">
-              <TextFieldGroup
-                error={errors && errors.email}
-                labelValue="Email"
-                labelClass="input-label"
-                labelFor="login-username-email"
-                field="email"
-                value={email}
-                onChange={onChange}
-                onBlur={onBlur}
-                errorFeedbackClass="login-invalid-feedback"
-                validFeedbackClass="login-valid-feedback"
-                errorId="login-email-error"
-                feedbackClass=""
-                className="input-field"
-                id="login-email"
-                inputContainerClass="input-container"
-              />
+        <div
+          className={`landingpage-modal ${isLoginRegistrationModalShown
+            ? 'is-visible' : null}`}
+          ref={(node) => { this.modal = node; }}
+          onClick={handleOutsideClick}
+        >
+          <div className="landingpage-modal-container">
+            <Switcher
+              firstClassName={`cd-login
+          ${isLoginSectionShown ? 'selected' : null}
+          `
+        }
+              secondClassName={`cd-register ${isSignupSectionShown
+                ? 'selected' : null}
+            ${isLoginSectionShown ? null : 'selected'}
+        `
+          }
+              firstValue="Login"
+              secondValue="Register"
+              listClass="switcher"
+              onClickSecondSwitcher={onClickSignupButton}
+              onClickFirstSwitcher={onClickLoginButton}
+            />
 
-              <TextFieldGroup
-                error={errors && errors.password}
-                type="password"
-                labelValue="Password"
-                labelClass="input-label"
-                labelFor="login-password"
-                field="email"
-                value={password}
-                onChange={onChange}
-                onBlur={onBlur}
-                errorFeedbackClass="login-invalid-feedback"
-                validFeedbackClass="login-valid-feedback"
-                errorId="login-email-error"
-                feedbackClass=""
-                className="input-field"
-                id="login-password"
-                inputContainerClass="input-container"
-              />
+            {isLoginSectionShown && (
+            <LoginForm
+              onClickForgotPasswordLink={onClickForgotPasswordLink}
+              isInputFieldEmpty={isInputFieldEmpty}
+              onChange={handleOnChange}
+              onBlur={handleOnBlur}
+              onInput={handleOnInput}
+              onSubmit={onSubmit}
+              loginErrors={loginErrors}
+              isLoading={isLoading}
+            />
+            )}
 
-              {/* <p className="cd-error-message" id="login-form-error"></p>
-              <div className="input-container">
-                <input type="text" className="input-field" id="login-email" />
-                <label className="input-label" for="login-username-email">Email</label>
-                <p className="cd-error-message" id="login-email-error"></p>
-              </div>
-              <div className="input-container">
-                <input type="password" className="input-field" id="login-password" />
-                <label className="input-label" for="login-password">Password</label>
-                <p className="cd-error-message" id="login-password-error"></p>
-              </div> */}
-              <div className="input-container">
-                <input type="checkbox" id="remember-me" checked />
-                <label>Remember me</label>
-              </div>
-              <div className="input-container">
-                <input type="submit" value="LOGIN" className="submit-form-btn" id="login-form-btn" />
-              </div>
-              <Link id="forgot-password" href="#">Forgot password?</Link>
-            </form>
-          </section>
+            {isSignupSectionShown && (
+            <SignupForm
+              onChange={handleOnChange}
+              onBlur={handleSignupOnBlur}
+              onInput={handleSignupOnInput}
+              signupErrors={signupErrors}
+              isLoading={isLoading}
+            />
+            )}
 
+            {isForgotPasswordSectionShown && (
+            <ForgotPasswordForm
+              onClickLoginButton={onClickLoginButton}
+              onBlur={handleOnBlur}
+              onChange={handleOnChange}
+              isLoading={isLoading}
+            />
+            )}
 
-          <section id="register-section">
-            <form className="cd-form" autocomplete="off">
-              <p className="cd-error-message" id="reg-form-error"></p>
-              <div className="input-container">
-                <input type="text" className="input-field" id="register-firstname" />
-                <label className="input-label" for="register-firstname">First name</label>
-                <p className="cd-error-message" id="register-firstname-error"></p>
-              </div>
-              <div className="input-container">
-                <input type="text" className="input-field" id="register-lastname" />
-                <label className="input-label" for="register-lastname">Last name</label>
-                <p className="cd-error-message" id="register-lastname-error"></p>
-              </div>
-              <div className="input-container">
-                <input type="text" className="input-field" id="register-email" />
-                <label className="input-label" for="register-email">Email</label>
-                <p className="cd-error-message" id="register-email-error"></p>
-              </div>
-              <div className="input-container">
-                <input type="password" className="input-field" id="register-password" />
-                <label className="input-label" for="register-password">Password</label>
-                <p className="cd-error-message" id="register-password-error"></p>
-              </div>
-              <div className="input-container">
-                <input type="password" className="input-field" id="register-confirm-password" />
-                <label className="input-label" for="register-confirm-password">Confirm Password</label>
-                <p className="cd-error-message" id="register-confirm-password-error"></p>
-              </div>
-              <div className="input-container">
-                <input type="submit" value="Create account" className="submit-form-btn" id="signup-form-btn" />
-              </div>
-            </form>
-          </section>
-
-          <section id="forgot-password-section">
-            <form className="cd-form" autocomplete="off">
-              <div className="input-container">
-                <p className="forgot-password-header">A reset link will be sent to your email</p>
-              </div>
-              <div className="input-container">
-                <input type="text" className="input-field" id="forgot-password-email" />
-                <label className="input-label" for="forgot-password-email">Email</label>
-              </div>
-              <div className="input-container">
-                <input type="submit" value="Send" className="submit-form-btn" />
-              </div>
-              <Link id="back-to-login" href="#">Back to Login</Link>
-            </form>
-          </section>
-
+          </div>
         </div>
-      </div>
 
-
-      <section id="background-image">
-        <div className="background-image-text">
-          <h1>We deliver your favourite meals to your doorstep</h1>
-        </div>
-      </section>
-      <section id="products">
-        <section id="breakfast">
-          <article className="breakfast-img">
-            <img src="./images/burger.jpg" />
-          </article>
-          <aside className="breakfast-text-container">
-            <p className="breakfast-text">Delicious inter-continental Fast Food</p>
-          </aside>
+        <section id="background-image">
+          <div className="background-image-text">
+            <h1>We deliver your favourite meals to your doorstep</h1>
+          </div>
         </section>
-        <section id="asian">
-          <article className="asian-text-container">
-            <h1 className="asian-text">Sumptuous Asian Cuisine</h1>
-          </article>
-          <aside className="asian-img">
-            <img src="./images/Thai.jpg" />
-          </aside>
+        <section id="products">
+          <section id="breakfast">
+            <article className="breakfast-img">
+              <img src={Burger} />
+            </article>
+            <aside className="breakfast-text-container">
+              <p className="breakfast-text">Delicious inter-continental Fast Food</p>
+            </aside>
+          </section>
+          <section id="asian">
+            <article className="asian-text-container">
+              <h1 className="asian-text">Sumptuous Asian Cuisine</h1>
+            </article>
+            <aside className="asian-img">
+              <img src={Thai} />
+            </aside>
+          </section>
+          <section id="pastries">
+            <article className="cake-img">
+              <img src={chocolateBrownie} />
+            </article>
+            <aside className="pastries-text-container">
+              <h1 className="pastries-text">Yummy pastries & Snacks</h1>
+            </aside>
+          </section>
+          <section id="african">
+            <article className="african-text-container">
+              <h1 className="african-text">Tantalising African Cuisine</h1>
+            </article>
+            <aside className="african-img">
+              <img src={jollofRice} />
+            </aside>
+          </section>
         </section>
-        <section id="pastries">
-          <article className="cake-img">
-            <img src="images/brownie-desert-cake-smaller.jpeg" />
-          </article>
-          <aside className="pastries-text-container">
-            <h1 className="pastries-text">Yummy pastries & Snacks</h1>
-          </aside>
-        </section>
-        <section id="african">
-          <article className="african-text-container">
-            <h1 className="african-text">Tantalising African Cuisine</h1>
-          </article>
-          <aside className="african-img">
-            <img src="./images/Jollof-rice.png" />
-          </aside>
-        </section>
-      </section>
-
-      <div id="spinner" className="hide">
-        <img id="img-spinner" src="./images/ajax-loader.gif" alt="loading" />
-      </div>
-
-      <footer className="footer">
-        <p>Food Direct &copy; 2018</p>
-      </footer>
-  )
+      </React.Fragment>
+    );
   }
 }
+
+LandingPage.propTypes = {
+  onClickLoginRegistrationNavLink: PropTypes.func.isRequired
+};
 
 export default LandingPage;

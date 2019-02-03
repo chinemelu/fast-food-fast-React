@@ -7,16 +7,18 @@ import FlashMessageList from './FlashMessagesList.jsx';
 const SignupForm = ({
   firstName,
   lastName,
-  loginErrors,
   signupErrors,
-  email,
-  password,
+  signupEmail,
+  signupPassword,
   confirmPassword,
   onChange,
   onBlur,
+  onInput,
+  isLoading,
+  handleSignupSubmit
 }) => (
   <section id="register-section">
-    <form className="cd-form" autoComplete="off">
+    <form className="cd-form" autoComplete="off" onSubmit={handleSignupSubmit}>
       <TextFieldGroup
         error={signupErrors && signupErrors.firstName}
         labelValue="First name"
@@ -26,13 +28,12 @@ const SignupForm = ({
         value={firstName}
         onChange={onChange}
         onBlur={onBlur}
-        errorFeedbackClass="login-invalid-feedback"
-        validFeedbackClass="login-valid-feedback"
         errorId="register-firstname-error"
-        feedbackClass="cd-error-message"
+        feedbackClass="register-error-message"
         className="input-field"
         id="register-firstname"
         inputContainerClass="input-container"
+        onInput={onInput}
       />
 
       <TextFieldGroup
@@ -44,46 +45,47 @@ const SignupForm = ({
         value={lastName}
         onChange={onChange}
         onBlur={onBlur}
-        errorFeedbackClass="login-invalid-feedback"
-        validFeedbackClass="login-valid-feedback"
         errorId="register-lastname-error"
-        feedbackClass=""
+        feedbackClass="register-error-message"
         className="input-field"
         id="register-lastname"
         inputContainerClass="input-container"
+        onInput={onInput}
       />
 
       <TextFieldGroup
-        error={signupErrors && signupErrors.email}
+        error={signupErrors && signupErrors.signupEmail}
         labelValue="Email"
         labelClass="input-label"
         labelFor="register-email"
-        field="email"
-        value={email}
+        field="signupEmail"
+        value={signupEmail}
         onChange={onChange}
         onBlur={onBlur}
         errorId="register-email-error"
-        feedbackClass=""
+        feedbackClass="register-error-message"
         className="input-field"
         id="register-email"
         inputContainerClass="input-container"
+        onInput={onInput}
       />
 
       <TextFieldGroup
-        error={signupErrors && signupErrors.password}
+        error={signupErrors && signupErrors.signupPassword}
         labelValue="Password"
         labelClass="input-label"
         labelFor="register-password"
-        field="password"
-        value={password}
+        field="signupPassword"
+        value={signupPassword}
         type="password"
         onChange={onChange}
         onBlur={onBlur}
         errorId="register-password-error"
-        feedbackClass=""
+        feedbackClass="register-error-message"
         className="input-field"
         id="register-password"
         inputContainerClass="input-container"
+        onInput={onInput}
       />
 
       <TextFieldGroup
@@ -96,22 +98,21 @@ const SignupForm = ({
         value={confirmPassword}
         onChange={onChange}
         onBlur={onBlur}
-        errorFeedbackClass="login-invalid-feedback"
-        validFeedbackClass="login-valid-feedback"
         errorId="register-confirm-password-error"
-        feedbackClass=""
+        feedbackClass="register-error-message"
         className="input-field"
         id="register-confirm-password"
         inputContainerClass="input-container"
+        onInput={onInput}
       />
 
       <TextFieldGroup
         type="submit"
         value="Create account"
-        feedbackClass=""
         className="submit-form-btn"
         id="login-form-btn"
         inputContainerClass="input-container"
+        disabled={isLoading || Object.keys(signupErrors).length > 0}
       />
     </form>
   </section>
@@ -121,8 +122,8 @@ const SignupForm = ({
 SignupForm.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
+  signupEmail: PropTypes.string.isRequired,
+  signupPassword: PropTypes.string.isRequired,
   confirmPassword: PropTypes.string.isRequired,
   signupErrors: PropTypes.objectOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,

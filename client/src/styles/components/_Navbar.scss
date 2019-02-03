@@ -1,0 +1,89 @@
+nav {
+	text-align: right;
+	height: 90px;
+	line-height: 90px;
+	background-color: #FF4136;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	z-index: 2;
+	position: relative;
+}
+
+.nav i {
+    font-size: 140%;
+}	
+	
+.menu {
+	margin-right: 3%;
+	background-color: #FF4136;
+}
+
+.menu a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #FFF;
+	margin: 0 30px;
+	line-height: 90px;
+	clear: both;
+}
+
+#hamburger {
+    margin-right: 7%;
+	font-size: 170%;
+	line-height: 90px;
+	display: none;
+	width: 26px;
+	float: right;
+	color: #FFF;
+}
+
+#toggle {
+    display: none;
+}
+
+#app-name {
+	font-size: 150%;
+	position: absolute;
+	left: 10%;
+}
+
+#app-name-toggle {
+	display: none;
+}
+
+@media only screen and (max-width: 1100px) {
+	#hamburger {
+		display: block;
+		cursor: pointer;
+	}
+	.menu {
+		text-align: center;
+		width: 100%;
+		display: none;
+	}
+	.menu a {
+		display: block;
+		border-bottom: 1px solid #EAEAEB;
+		margin: 0;
+	}
+	
+	.menu a:first-child {
+	    border-top: 1px solid #EAEAEB;
+    }
+
+	#toggle:checked + .menu {
+		display: block;
+	}
+	#app-name {
+		display: none;
+	}
+	#app-name-toggle {
+		display: inline-block;
+		position: absolute;
+		left: 5%;
+		top: -20%;
+		text-transform: uppercase;
+		font-size: 120%;
+		color: #FFF;
+	}
+}

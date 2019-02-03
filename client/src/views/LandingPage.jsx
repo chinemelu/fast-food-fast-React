@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { LandingPage } from '../components/Index.jsx';
-import { addFlashMessage, clearFlashMessages } from '../actions/flashActions.js';
+import {
+  addFlashMessage,
+  clearFlashMessages
+} from '../actions/flashActions.js';
 import { loginRequest } from '../actions/loginActions.js';
-import { LoginForm } from '../components';
+import { signupRequest } from '../actions/signupActions.js';
 import loginValidation from '../utils/loginValidation.js';
 import Spinner from '../components/Spinner.jsx';
 import signupValidation from '../utils/signupValidation.js';
@@ -118,7 +121,7 @@ class LandingPageView extends Component {
       } else {
         delete (this.onSignupInputError[field]);
       }
-      this.setState({ signupErrors: this.onInputError });
+      this.setState({ signupErrors: this.onSignupInputError });
     });
   }
 
@@ -129,14 +132,14 @@ class LandingPageView extends Component {
       e.target.className = 'input-field';
     }
     const field = e.target.name;
-    const errors = signupValidation(this.state);
-    if (errors[field]) {
-      this.onSignupBlurError[field] = errors[field];
-      this.setState({ errors: this.onSignupBlurError[field] });
+    const signupErrors = signupValidation(this.state);
+    if (signupErrors[field]) {
+      this.onSignupBlurError[field] = signupErrors[field];
+      this.setState({ signupErrors: this.onSignupBlurError[field] });
     } else {
       delete (this.onSignupBlurError[field]);
     }
-    this.setState({ signupErrors: this.onBlurError });
+    this.setState({ signupErrors: this.onSignupBlurError });
   }
 
   handleOnBlur = (e) => {
@@ -173,7 +176,7 @@ class LandingPageView extends Component {
         if (loginResponse.status === 200) {
           history.push('/');
         } else if (
-          loginResponse.error === 'Invalid email or password'
+          loginResponse.status === 401
         ) {
           addBannerMessage({
             type: 'error',
@@ -189,6 +192,33 @@ class LandingPageView extends Component {
     }
   }
 
+
+  handleSignupSubmit = async (e) => {
+    e.preventDefault();
+    const {
+      addBannerMessage,
+      clearBannerMessages,
+      userSignup,
+      history
+    } = this.props;
+    clearBannerMessages();
+    if (this.isValidSignup()) {
+      this.setState({ signupErrors: {}, isLoading: true });
+      const signupResponse = await userSignup(this.state);
+      if (signupResponse) {
+        this.setState({ isLoading: false });
+        if (signupResponse.status === 201) {
+          history.push('/');
+        } else {
+          addBannerMessage({
+            type: 'warning',
+            text: `${signupResponse.errors.emailExists}`
+          });
+        }
+      }
+    }
+  }
+
   isValid() {
     const loginErrors = loginValidation(this.state);
     if (Object.keys(loginErrors).length > 0) {
@@ -198,6 +228,14 @@ class LandingPageView extends Component {
     return true;
   }
 
+  isValidSignup() {
+    const signupErrors = signupValidation(this.state);
+    if (Object.keys(signupErrors).length > 0) {
+      this.setState({ signupErrors });
+      return false;
+    }
+    return true;
+  }
 
   render() {
     const {
@@ -213,7 +251,9 @@ class LandingPageView extends Component {
       confirmPassword,
       loginErrors,
       signupErrors,
-      isLoading
+      isLoading,
+      signupEmail,
+      signupPassword
     } = this.state;
 
     return (
@@ -243,6 +283,9 @@ class LandingPageView extends Component {
           isLoading={isLoading}
           handleSignupOnBlur={this.handleSignupOnBlur}
           handleSignupOnInput={this.handleSignupOnInput}
+          signupEmail={signupEmail}
+          signupPassword={signupPassword}
+          handleSignupSubmit={this.handleSignupSubmit}
         />
         <Spinner
           hideClassName={
@@ -269,7 +312,8 @@ LandingPage.defaultProps = {
 const mapDispatchToProps = {
   userLogin: loginRequest,
   addBannerMessage: addFlashMessage,
-  clearBannerMessages: clearFlashMessages
+  clearBannerMessages: clearFlashMessages,
+  userSignup: signupRequest
 };
 
 export default connect(null, mapDispatchToProps)(LandingPageView);

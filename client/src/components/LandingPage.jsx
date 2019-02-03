@@ -39,7 +39,13 @@ class LandingPage extends Component {
       onSubmit,
       loginErrors,
       signupErrors,
-      isLoading
+      isLoading,
+      firstName,
+      lastName,
+      signupEmail,
+      signupPassword,
+      confirmPassword,
+      handleSignupSubmit
     } = this.props;
     return (
       <React.Fragment>
@@ -92,6 +98,7 @@ class LandingPage extends Component {
               onInput={handleSignupOnInput}
               signupErrors={signupErrors}
               isLoading={isLoading}
+              handleSignupSubmit={handleSignupSubmit}
             />
             )}
 

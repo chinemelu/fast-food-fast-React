@@ -3,19 +3,21 @@ import {
 } from '../actionTypes';
 
 const initialState = {
-  isAuthenticated: null,
-  authenticated: false,
-  token: '',
-  platform: '',
-  userInfo: {}
+  isUserAuthenticated: false,
+  isAdminAuthenticated: false,
 };
 
 const authReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_CURRENT_USER:
       return {
-        isAuthenticated: action.userInfo
-        && Object.keys(action.userInfo).length > 0,
+        isUserAuthenticated: action.userInfo
+        && Object.keys(action.userInfo).length > 0
+        && action.userInfo.role === 'user',
+        isAdminAuthenticated: action.userInfo
+        && Object.keys(action.userInfo).length > 0
+        && (action.userInfo.role === 'admin'
+        || action.userInfo.role === 'superadmin'),
         userInfo: action.userInfo
       };
     default: return state;

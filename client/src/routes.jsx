@@ -14,10 +14,14 @@ import {
   LandingPageView
 } from './views/index.js';
 
+import {
+  HomePageRedirect
+} from './utils/HomePageRedirect.jsx';
+
 const routes = (
   <BrowserRouter>
     <Switch>
-      <LayoutContainer path="/login" component={LandingPageView} layout={PreLoginLayout} />
+      <LayoutContainer path="/login" component={LandingPageView} layout={HomePageRedirect(PreLoginLayout)} />
     </Switch>
   </BrowserRouter>
 );

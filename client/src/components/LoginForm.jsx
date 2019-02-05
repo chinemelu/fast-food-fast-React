@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import TextFieldGroup from './TextFieldGroup.jsx';
-import FlashMessageList from './FlashMessagesList.jsx';
+import TextFieldGroup from './TextFieldGroup';
+import FlashMessageList from './FlashMessagesList';
 
 const LoginForm = ({
   loginErrors,

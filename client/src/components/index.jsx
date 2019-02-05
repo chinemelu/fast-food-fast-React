@@ -1,14 +1,15 @@
-import SubmitButton from './SubmitButton.jsx';
-import FlashMessage from './FlashMessage.jsx';
-import FlashMessagesList from './FlashMessagesList.jsx';
-import TextFieldGroup from './TextFieldGroup.jsx';
-import LandingPage from './LandingPage.jsx';
-import PreLoginLayout from './PreLoginLayout.jsx';
-import AfterLoginLayout from './AfterLoginLayout.jsx';
-import LayoutContainer from './LayoutContainer.jsx';
-import LoginForm from './LoginForm.jsx';
-import SignupForm from './SignupForm.jsx';
-import ForgotPasswordForm from './ForgotPasswordForm.jsx';
+import SubmitButton from './SubmitButton';
+import FlashMessage from './FlashMessage';
+import FlashMessagesList from './FlashMessagesList';
+import TextFieldGroup from './TextFieldGroup';
+import LandingPage from './LandingPage';
+import PreLoginLayout from './PreLoginLayout';
+import AfterLoginLayout from './AfterLoginLayout';
+import LayoutContainer from './LayoutContainer';
+import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
+import ForgotPasswordForm from './ForgotPasswordForm';
+import Spinner from './Spinner';
 
 export {
   SubmitButton,
@@ -21,5 +22,6 @@ export {
   LayoutContainer,
   LoginForm,
   SignupForm,
-  ForgotPasswordForm
+  ForgotPasswordForm,
+  Spinner
 };

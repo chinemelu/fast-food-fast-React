@@ -7,21 +7,22 @@ import {
 
 import {
   LayoutContainer,
-  PreLoginLayout
-} from './components/index.jsx';
+  PreLoginLayout,
+  AfterLoginLayout
+} from './components/index';
 
 import {
-  LandingPageView
-} from './views/index.js';
+  LandingPageView,
+  ProductsPage
+} from './views/index';
 
-import {
-  HomePageRedirect
-} from './utils/HomePageRedirect.jsx';
+import HomePageRedirect from './utils/HomePageRedirect';
 
 const routes = (
   <BrowserRouter>
     <Switch>
-      <LayoutContainer path="/login" component={LandingPageView} layout={HomePageRedirect(PreLoginLayout)} />
+      <LayoutContainer path="/login" component={HomePageRedirect(LandingPageView)} layout={PreLoginLayout} />
+      <LayoutContainer path="/products" component={ProductsPage} layout={AfterLoginLayout} />
     </Switch>
   </BrowserRouter>
 );

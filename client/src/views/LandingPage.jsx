@@ -174,7 +174,7 @@ class LandingPageView extends Component {
       if (loginResponse) {
         this.setState({ isLoading: false });
         if (loginResponse.status === 200) {
-          history.push('/');
+          history.push('/products');
         } else if (
           loginResponse.status === 401
         ) {
@@ -208,7 +208,7 @@ class LandingPageView extends Component {
       if (signupResponse) {
         this.setState({ isLoading: false });
         if (signupResponse.status === 201) {
-          history.push('/');
+          history.push('/products');
         } else {
           addBannerMessage({
             type: 'warning',

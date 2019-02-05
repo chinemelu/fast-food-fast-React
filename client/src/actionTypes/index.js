@@ -2,3 +2,6 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const ADD_FLASH_MESSAGE = 'ADD_FLASH_MESSAGE';
 export const DELETE_FLASH_MESSAGE = 'DELETE_FLASH_MESSAGE';
 export const CLEAR_FLASH_MESSAGES = 'CLEAR_FLASH_MESSAGES';
+export const GET_MENU = 'GET_MENU';
+export const GET_CART = 'GET_CART';
+export const ADD_TO_CART = 'ADD_TO_CART';

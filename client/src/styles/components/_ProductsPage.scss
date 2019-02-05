@@ -1,0 +1,107 @@
+#customer-page-cover-image {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0,0,0,0.65)), url("./Images/brownie-cake-chocolate-45202.jpg");
+	background-position: center;
+	background-size: cover;
+	height: 60vh;
+}
+
+.add-to-cart  {
+	background-color: #659DBD;
+	border: none;
+	padding: 0.9em 1.2em;
+	color: #FFF;
+	cursor: pointer;
+}
+
+.heading h1 {
+	text-align: center;
+	text-transform: uppercase;
+	border-bottom: 1px solid #d2d8d8;
+}
+
+#food-list {
+	margin-bottom: 10%;
+	float: left;
+}
+
+.food-item img{
+	height: 200px;
+	width: 85%;
+}
+
+#food-list .food-item {
+	display: inline-block;
+	border: 1.5px solid #d2d8d8;
+	width: 22%;
+	text-align: center;
+	margin-left: 2.2%;
+	padding: 1%;
+	margin-top: 1%;
+}
+
+#listing-price {
+	color: #659DBD;
+}
+
+#food-list .food-item h1 {
+	font-size: 100%;
+}
+
+.footer {
+	display: inline-block;
+	width: 100%;
+	background-color: #FF4136;
+	color: #FFF;
+	text-align: center;
+	padding: 0.8% 0%;
+	font-size: 120%;
+}
+
+.total-cart-quantity {
+	border-radius: 50%;
+	background-color: #FFF;
+	padding: 0.5%;
+	color: black;
+	font-weight: 900;
+}
+
+.products-banner-msg {
+	position: fixed;
+	width: 20%;
+	color: #fff;
+	right: 5%;
+	padding: 2% 0;
+	top: 10%;
+}
+
+@media only screen and (max-width: 800px) {
+	#food-list .food-item {
+		width: 30%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+	#food-list {
+		margin-left: 2%;
+    }
+	
+	#food-list .food-item {
+		width: 45%;
+    }
+}
+
+@media only screen and (max-width: 422px) {
+	#food-list .food-item:first-child {
+		width: 80%;
+		margin: 2% 0 0 7%;
+    }
+	
+	#food-list .food-item {
+		width: 80%;
+		margin: 8% 0 0 7%;
+    }
+	#food-list .food-item:last-child {
+		width: 80%;
+		margin-bottom: 7%;
+    }
+}

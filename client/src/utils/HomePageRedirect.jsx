@@ -8,7 +8,7 @@ export default function (ComposedComponent) {
       const { history, isUserAuthenticated, isAdminAuthenticated } = this.props;
 
       if (isUserAuthenticated || isAdminAuthenticated) {
-        return history.push('/');
+        return history.push('/products');
       }
     }
 

@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import UserNavbar from '../components/UserNavbar.jsx';
-import GuestNavbar from '../components/GuestNavbar.jsx';
-import AdminNavbar from '../components/AdminNavbar.jsx';
-import logout from '../actions/logoutActions.js';
+import UserNavbar from '../components/UserNavbar';
+import GuestNavbar from '../components/GuestNavbar';
+import AdminNavbar from '../components/AdminNavbar';
+import logout from '../actions/logoutActions';
+import { fetchCartRequest } from '../actions/cartActions';
+import Spinner from '../components/Spinner';
 
 
 class Navbar extends Component {
-  onClick = (event) => {
+  componentDidMount() {
+    const { getCartRequest } = this.props;
+    getCartRequest();
+  }
+
+
+  handleSignout = (event) => {
     event.preventDefault();
     const {
       signout,
@@ -20,22 +28,18 @@ class Navbar extends Component {
     } = this.props;
     signout();
 
-    history.push('/');
+    history.push('/products');
   }
 
   returnAppropriateNavbar = () => {
     const {
-      signout,
-      currentUser: {
-        isAdminAuthenticated,
-        isUserAuthenticated
-      }
+      signout, isAdminAuthenticated, isUserAuthenticated, cart
     } = this.props;
-
     if (isUserAuthenticated) {
       return (
         <UserNavbar
-          signout={signout}
+          signout={this.handleSignout}
+          cart={cart}
         />
       );
     }
@@ -43,13 +47,24 @@ class Navbar extends Component {
       return (
         <AdminNavbar
           signout={signout}
+          cart={cart}
         />
       );
     }
-    return <GuestNavbar />;
+    return (
+      <GuestNavbar
+        cart={cart}
+      />
+    );
   }
 
   render() {
+    const { cart } = this.props;
+    localStorage.setItem('initialCartQuantity', cart.totalQuantity);
+
+    if (Object.keys(cart).length === 0) {
+      return <Spinner />;
+    }
     const returnAppropriateNavbar = this.returnAppropriateNavbar();
 
     return (
@@ -62,15 +77,17 @@ class Navbar extends Component {
 
 const mapStateToProps = state => ({
   isUserAuthenticated: state.currentUser.isUserAuthenticated,
-  isAdminAuthenticated: state.currentUser.isAdminAuthenticated
+  isAdminAuthenticated: state.currentUser.isAdminAuthenticated,
+  cart: state.userCart
 });
 
 Navbar.propTypes = {
-  currentUser: PropTypes.objectOf(PropTypes.string).isRequired,
   signout: PropTypes.func.isRequired,
   children: PropTypes.objectOf(PropTypes.string),
   isUserAuthenticated: PropTypes.bool.isRequired,
-  isAdminAuthenticated: PropTypes.bool.isRequired
+  isAdminAuthenticated: PropTypes.bool.isRequired,
+  getCartRequest: PropTypes.func.isRequired,
+  cart: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
 Navbar.defaultProps = {
@@ -79,6 +96,7 @@ Navbar.defaultProps = {
 
 const mapDispatchToProps = {
   signout: logout,
+  getCartRequest: fetchCartRequest
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

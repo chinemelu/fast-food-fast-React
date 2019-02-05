@@ -7,7 +7,7 @@ const PreLoginNavbar = ({ onClickLoginRegistrationNavLink }) => (
     <label id="hamburger" htmlFor="toggle">&#9776;</label>
     <input type="checkbox" id="toggle" />
     <div className="menu">
-      <Link to="customerpage.html">View Products</Link>
+      <Link to="/products">View Products</Link>
       <Link
         onClick={onClickLoginRegistrationNavLink}
         to="#"
@@ -15,7 +15,7 @@ const PreLoginNavbar = ({ onClickLoginRegistrationNavLink }) => (
 Login/Register
 
       </Link>
-      <Link id="app-name" to="landingpage.html">Food-direct</Link>
+      <Link id="app-name" to="/products">Food-direct</Link>
     </div>
     <p id="app-name-toggle" href="landingpage.html">Food-direct</p>
   </div>

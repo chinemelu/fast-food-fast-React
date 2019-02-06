@@ -10,13 +10,13 @@ const UserNavbar = ({ signout, cart }) => (
       <Link to="/products">Our Products</Link>
       <Link to="/">My Order History</Link>
       <Link to="#" onClick={signout}>Logout</Link>
-      <Link to="">
+      <Link to="/cart">
         <i className="fas fa-shopping-cart" />
         <span className="total-cart-quantity">
           {cart.totalQuantity}
         </span>
       </Link>
-      <Link id="app-name" to="/">Food-direct</Link>
+      <Link id="app-name" to="/pfroducts">Food-direct</Link>
     </div>
     <p id="app-name-toggle" href="landingpage.html">Food-direct</p>
   </div>

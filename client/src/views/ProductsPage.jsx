@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Carousel from '../components/Carousel';
-import FoodCard from '../components/FoodCard';
+import {
+  Carousel, FoodCard, Footer, Spinner
+} from '../components';
 import { getMenuRequest } from '../actions/menuActions';
-import { Spinner } from '../components/index';
 import { addToCartRequest, fetchCartRequest } from '../actions/cartActions';
 import { addFlashMessage, clearFlashMessages } from '../actions/flashActions';
 import FlashMessageList from '../components/FlashMessagesList';
@@ -55,6 +55,9 @@ class ProductsPage extends Component {
             {menu}
           </section>
         </div>
+        <Footer
+          className="products-page-footer"
+        />
       </React.Fragment>
     );
   }

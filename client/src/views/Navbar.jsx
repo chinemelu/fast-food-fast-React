@@ -60,7 +60,7 @@ class Navbar extends Component {
 
   render() {
     const { cart } = this.props;
-    localStorage.setItem('initialCartQuantity', cart.totalQuantity);
+    localStorage.setItem('initialCartQuantity', cart.totalQuantity || 0);
 
     if (Object.keys(cart).length === 0) {
       return <Spinner />;

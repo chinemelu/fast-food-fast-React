@@ -8,10 +8,10 @@ const AdminNavbar = ({ signout, cart }) => (
     <input type="checkbox" id="toggle" />
     <div className="menu">
       <Link to="/products">Our Products</Link>
-      <Link to="#">My Order History</Link>
-      <Link to="#">Admin</Link>
+      <Link to="/order-history">My Order History</Link>
+      <Link to="/admin">Admin</Link>
       <Link to="#" onClick={signout}>Logout</Link>
-      <Link to="#">
+      <Link to="/cart">
         <i className="fas fa-shopping-cart" />
         <span className="total-cart-quantity">
           {cart.totalQuantity}
@@ -22,5 +22,10 @@ const AdminNavbar = ({ signout, cart }) => (
     <p id="app-name-toggle" href="landingpage.html">Food-direct</p>
   </div>
 );
+
+AdminNavbar.propTypes = {
+  signout: PropTypes.func.isRequired,
+  cart: PropTypes.objectOf(PropTypes.string)
+};
 
 export default AdminNavbar;

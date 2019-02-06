@@ -6,7 +6,9 @@ import Footer from './Footer.jsx';
 const PreLoginLayout = props => (
   <div>
     {props.children}
-    <Footer />
+    <Footer
+      className="landing-page-footer"
+    />
   </div>
 );
 

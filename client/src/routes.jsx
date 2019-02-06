@@ -13,16 +13,21 @@ import {
 
 import {
   LandingPageView,
-  ProductsPage
+  ProductsPage,
+  ShoppingCartPage
 } from './views/index';
 
 import HomePageRedirect from './utils/HomePageRedirect';
+import PaymentPage from './views/PaymentPage';
+
 
 const routes = (
   <BrowserRouter>
     <Switch>
       <LayoutContainer path="/login" component={HomePageRedirect(LandingPageView)} layout={PreLoginLayout} />
       <LayoutContainer path="/products" component={ProductsPage} layout={AfterLoginLayout} />
+      <LayoutContainer path="/cart" component={ShoppingCartPage} layout={AfterLoginLayout} />
+      <LayoutContainer path="/order" component={PaymentPage} layout={AfterLoginLayout} />
     </Switch>
   </BrowserRouter>
 );

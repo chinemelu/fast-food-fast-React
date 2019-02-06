@@ -1,5 +1,5 @@
 import {
-  GET_CART, ADD_TO_CART
+  GET_CART, ADD_TO_CART, PLACE_ORDER
 } from '../actionTypes';
 
 const initialState = {
@@ -25,6 +25,13 @@ const cartReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         totalQuantity: parseInt(initialCartQuantity, 10) + 1,
+      };
+    case PLACE_ORDER:
+      return {
+        ...state,
+        totalprice: 0,
+        totalQuantity: 0,
+        items: []
       };
     default: return state;
   }

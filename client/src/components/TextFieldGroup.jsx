@@ -5,7 +5,6 @@ const TextFieldGroup = ({
   field,
   value,
   error,
-  errorId,
   type,
   className,
   onChange,

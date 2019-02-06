@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Switcher from './Switcher.jsx';
-import FlashMessageList from './FlashMessagesList.jsx';
-import PreLoginNavbar from './PreLoginNavbar.jsx';
-import LoginForm from './LoginForm.jsx';
-import SignupForm from './SignupForm.jsx';
-import ForgotPasswordForm from './ForgotPasswordForm.jsx';
+import Switcher from './Switcher';
+import FlashMessageList from './FlashMessagesList';
+import PreLoginNavbar from './PreLoginNavbar';
+import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
+import ForgotPasswordForm from './ForgotPasswordForm';
 import Burger from '../styles/images/burger.jpg';
 import Thai from '../styles/images/Thai.jpg';
 import chocolateBrownie

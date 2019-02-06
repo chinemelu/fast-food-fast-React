@@ -1,0 +1,77 @@
+.mobile-payment-footer {
+  position: fixed;
+  bottom: 0;
+	width: 100%;
+	background-color: #FF4136;
+	color: #FFF;
+	text-align: center;
+	padding: 0.8% 0%;
+	font-size: 120%;
+}
+
+#delivery-details-section {
+  margin: 50px auto 100px;
+  max-width: 600px;
+}
+
+.fieldset {
+  width: 100%;
+}
+
+.fieldset label {
+  display: block;
+}
+
+.fieldset input {
+  width: 90%;
+  padding: 1%;
+}
+
+#delivery-details-section .order-btn {
+	border: none;
+	border-radius: 20px;
+	color: #FFF;
+	background-color: #FF4136;
+	padding: 10px 30px;
+	text-decoration: none;
+	cursor: pointer;
+  outline: none;
+  margin-top: 3%;
+}
+
+.spinner {
+	position: fixed;
+	left: 50%;
+	top: 40%;
+	background-color: #FF4136;
+	z-index: 1000;
+}
+
+.hide {
+	display: none;
+}
+
+.total-cart-quantity {
+	border-radius: 50%;
+	background-color: #FFF;
+	padding: 0.5%;
+	color: black;
+	font-weight: 900;
+}
+
+#delivery-details-section .order-btn[disabled], #delivery-details-section .order-btn:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.cd-address-error-message, .cd-mobile-error-message {
+  display: none;
+	color: red;
+	font-size: 80%;
+}
+
+.cd-address-error-message.is-visible, .cd-mobile-error-message.is-visible {
+	display: block
+}

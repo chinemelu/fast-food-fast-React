@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Footer = ({ footerText }) => (
-  <footer className="footer">
+const Footer = ({ footerText, className }) => (
+  <footer className={className}>
     <p>
       {footerText}
       &copy; 2018
@@ -12,7 +12,8 @@ const Footer = ({ footerText }) => (
 
 
 Footer.propTypes = {
-  footerText: PropTypes.string
+  footerText: PropTypes.string,
+  className: PropTypes.string
 };
 
 Footer.defaultProps = {

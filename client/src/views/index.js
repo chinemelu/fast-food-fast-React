@@ -1,10 +1,14 @@
-import LandingPageView from './LandingPage.jsx';
-import Navbar from './Navbar.jsx';
-import ProductsPage from './ProductsPage.jsx';
+import LandingPageView from './LandingPage';
+import Navbar from './Navbar';
+import ProductsPage from './ProductsPage';
+import ShoppingCartPage from './ShoppingCartPage';
+import PaymentPage from './PaymentPage';
 
 
 export {
   LandingPageView,
   Navbar,
-  ProductsPage
+  ProductsPage,
+  ShoppingCartPage,
+  PaymentPage
 };

@@ -3,8 +3,8 @@ import React from 'react';
 import jwt from 'jsonwebtoken';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addFlashMessage } from '../actions/flashActions.js';
-import logout from '../actions/logoutActions.js';
+import { addFlashMessage } from '../actions/flashActions';
+import logout from '../actions/logoutActions';
 
 export default function (Component) {
   class Authenticate extends React.Component {

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { LandingPage } from '../components/Index.jsx';
+import { LandingPage } from '../components';
 import {
   addFlashMessage,
   clearFlashMessages
-} from '../actions/flashActions.js';
-import { loginRequest } from '../actions/loginActions.js';
-import { signupRequest } from '../actions/signupActions.js';
-import loginValidation from '../utils/loginValidation.js';
-import Spinner from '../components/Spinner.jsx';
-import signupValidation from '../utils/signupValidation.js';
+} from '../actions/flashActions';
+import { loginRequest } from '../actions/loginActions';
+import { signupRequest } from '../actions/signupActions';
+import loginValidation from '../utils/loginValidation';
+import Spinner from '../components/Spinner';
+import signupValidation from '../utils/signupValidation';
 
 class LandingPageView extends Component {
   constructor(props) {
@@ -298,14 +298,15 @@ class LandingPageView extends Component {
   }
 }
 
-LandingPage.propTypes = {
+LandingPageView.propTypes = {
   userLogin: PropTypes.func.isRequired,
   addBannerMessage: PropTypes.func.isRequired,
   clearBannerMessages: PropTypes.func,
-  history: PropTypes.func
+  history: PropTypes.func,
+  userSignup: PropTypes.func
 };
 
-LandingPage.defaultProps = {
+LandingPageView.defaultProps = {
   clearBannerMessages: () => null
 };
 

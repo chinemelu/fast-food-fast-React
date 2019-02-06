@@ -10,6 +10,14 @@ import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import ForgotPasswordForm from './ForgotPasswordForm';
 import Spinner from './Spinner';
+import SelectFieldGroup from './SelectFieldGroup';
+import ShoppingCart from './ShoppingCart';
+import Button from './Button';
+import LinkButton from './LinkButton';
+import Footer from './Footer';
+import FoodCard from './FoodCard';
+import Carousel from './Carousel';
+import Payment from './Payment';
 
 export {
   SubmitButton,
@@ -23,5 +31,13 @@ export {
   LoginForm,
   SignupForm,
   ForgotPasswordForm,
-  Spinner
+  Spinner,
+  ShoppingCart,
+  SelectFieldGroup,
+  Button,
+  LinkButton,
+  Footer,
+  FoodCard,
+  Carousel,
+  Payment
 };

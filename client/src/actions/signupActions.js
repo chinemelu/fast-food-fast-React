@@ -1,8 +1,8 @@
 
 import jwt from 'jsonwebtoken';
-import { Post } from '../utils/axiosMethods.js';
-import { SET_CURRENT_USER } from '../actionTypes/index.js';
-import setAuthorizationToken from '../utils/setAuthorizationToken.js';
+import { Post } from '../utils/axiosMethods';
+import { SET_CURRENT_USER } from '../actionTypes/index';
+import setAuthorizationToken from '../utils/setAuthorizationToken';
 
 export const setCurrentUser = userInfo => ({
   type: SET_CURRENT_USER,

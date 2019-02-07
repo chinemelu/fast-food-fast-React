@@ -8,12 +8,12 @@ const UserNavbar = ({ signout, cart }) => (
     <input type="checkbox" id="toggle" />
     <div className="menu">
       <Link to="/products">Our Products</Link>
-      <Link to="/">My Order History</Link>
+      <Link to="/order-history">My Order History</Link>
       <Link to="#" onClick={signout}>Logout</Link>
       <Link to="/cart">
         <i className="fas fa-shopping-cart" />
         <span className="total-cart-quantity">
-          {cart.totalQuantity}
+          {cart.totalQuantity || 0}
         </span>
       </Link>
       <Link id="app-name" to="/pfroducts">Food-direct</Link>

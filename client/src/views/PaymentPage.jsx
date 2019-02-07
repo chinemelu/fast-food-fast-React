@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import jwt from 'jsonwebtoken';
 import PropTypes from 'prop-types';
 import Payment from '../components/Payment';
 import paymentPageValidation from '../utils/paymentPageValidation';

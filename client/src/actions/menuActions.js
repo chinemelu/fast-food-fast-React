@@ -1,6 +1,6 @@
 
-import { Get } from '../utils/axiosMethods.js';
-import { GET_MENU } from '../actionTypes/index.js';
+import { Get } from '../utils/axiosMethods';
+import { GET_MENU } from '../actionTypes/index';
 
 export const getMenu = menu => ({
   type: GET_MENU,

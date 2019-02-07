@@ -6,4 +6,4 @@ export const GET_MENU = 'GET_MENU';
 export const GET_CART = 'GET_CART';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const PLACE_ORDER = 'PLACE_ORDER';
-export const GET_MY_ORDERS = 'GET_MY_ORDERS';
+export const GET_MY_ORDER_HISTORY = 'GET_MY_ORDERS';

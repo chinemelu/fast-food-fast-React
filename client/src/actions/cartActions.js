@@ -1,5 +1,5 @@
-import { Get } from '../utils/axiosMethods.js';
-import { GET_CART, ADD_TO_CART } from '../actionTypes/index.js';
+import { Get } from '../utils/axiosMethods';
+import { GET_CART, ADD_TO_CART } from '../actionTypes/index';
 
 export const getCartActionCreator = cart => ({
   type: GET_CART,

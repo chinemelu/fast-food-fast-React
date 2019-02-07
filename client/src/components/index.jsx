@@ -18,6 +18,7 @@ import Footer from './Footer';
 import FoodCard from './FoodCard';
 import Carousel from './Carousel';
 import Payment from './Payment';
+import OrderHistory from './OrderHistory';
 
 export {
   SubmitButton,
@@ -39,5 +40,6 @@ export {
   Footer,
   FoodCard,
   Carousel,
-  Payment
+  Payment,
+  OrderHistory
 };

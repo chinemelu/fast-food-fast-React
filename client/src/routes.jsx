@@ -14,8 +14,9 @@ import {
 import {
   LandingPageView,
   ProductsPage,
-  ShoppingCartPage
-} from './views/index';
+  ShoppingCartPage,
+  OrderHistoryPage
+} from './views';
 
 import HomePageRedirect from './utils/HomePageRedirect';
 import PaymentPage from './views/PaymentPage';
@@ -28,6 +29,7 @@ const routes = (
       <LayoutContainer path="/products" component={ProductsPage} layout={AfterLoginLayout} />
       <LayoutContainer path="/cart" component={ShoppingCartPage} layout={AfterLoginLayout} />
       <LayoutContainer path="/order" component={PaymentPage} layout={AfterLoginLayout} />
+      <LayoutContainer path="/order-history" component={OrderHistoryPage} layout={AfterLoginLayout} />
     </Switch>
   </BrowserRouter>
 );

@@ -12,25 +12,21 @@ import { addToCartRequest, fetchCartRequest } from '../actions/cartActions';
 import { addFlashMessage, clearFlashMessages } from '../actions/flashActions';
 import FlashMessageList from '../components/FlashMessagesList';
 
-
 class ShoppingCartPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isTextBoxVisible: false
-    };
+  componentDidMount() {
+    const { getCartRequest } = this.props;
+    getCartRequest();
   }
 
   render() {
     const { cart } = this.props;
-    const { isTextBoxVisible } = this.state;
 
-    if (!cart || !Array.isArray(cart.items) || !(cart.items.length)) {
+    if (!Array.isArray(cart.items)) {
       return <Spinner />;
     }
 
-    if (cart && Array.isArray(cart.items) && cart.items.length === 0) {
-      return <h1 className="no-items-text">There are no items in this cart</h1>;
+    if (!cart.items.length) {
+      return <h1>There are no items in this cart</h1>;
     }
 
 
@@ -41,7 +37,6 @@ class ShoppingCartPage extends Component {
         cart={cart}
         handleChange={this.handleChange}
         value={cartItem.quantity}
-        isTextBoxVisible={isTextBoxVisible}
       />
     ));
     return (
@@ -73,8 +68,8 @@ class ShoppingCartPage extends Component {
             </div>
           </div>
         </section>
-        <Footer 
-        className="shopping-cart-footer"
+        <Footer
+          className="shopping-cart-footer"
         />
       </React.Fragment>
 
@@ -85,9 +80,8 @@ class ShoppingCartPage extends Component {
 
 
 ShoppingCartPage.propTypes = {
-  addBannerMessage: PropTypes.func.isRequired,
-  clearBannerMessages: PropTypes.func.isRequired,
   cart: PropTypes.objectOf(PropTypes.string).isRequired,
+  getCartRequest: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = {

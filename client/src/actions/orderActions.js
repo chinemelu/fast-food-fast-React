@@ -1,12 +1,16 @@
-import { Post } from '../utils/axiosMethods';
-import { PLACE_ORDER, GET_MY_ORDERS } from '../actionTypes';
+import { Post, Get } from '../utils/axiosMethods';
+import {
+  PLACE_ORDER,
+  GET_MY_ORDER_HISTORY
+} from '../actionTypes';
 
 export const placeOrderActionCreator = () => ({
   type: PLACE_ORDER,
 });
 
-export const getMyOrdersActionCreator = () => ({
-  type: GET_MY_ORDERS,
+export const getMyOrderHistoryActionCreator = orderHistory => ({
+  type: GET_MY_ORDER_HISTORY,
+  orderHistory
 });
 
 export const placeOrderRequest = deliveryData => async (dispatch) => {
@@ -16,9 +20,18 @@ export const placeOrderRequest = deliveryData => async (dispatch) => {
   };
   try {
     const placeOrderResponse = await Post('/orders', sentData);
-    console.log(placeOrderResponse, 'RESPONSEEEE');
     dispatch(placeOrderActionCreator(placeOrderResponse));
     return placeOrderResponse;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const getMyOrderHistoryRequest = userId => async (dispatch) => {
+  try {
+    const getMyOrderHistoryResponse = await Get(`/users/${userId}/orders`);
+    dispatch(getMyOrderHistoryActionCreator(getMyOrderHistoryResponse));
+    return getMyOrderHistoryResponse;
   } catch (error) {
     return error.response;
   }

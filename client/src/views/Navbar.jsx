@@ -33,7 +33,7 @@ class Navbar extends Component {
 
   returnAppropriateNavbar = () => {
     const {
-      signout, isAdminAuthenticated, isUserAuthenticated, cart
+      isAdminAuthenticated, isUserAuthenticated, cart
     } = this.props;
     if (isUserAuthenticated) {
       return (
@@ -46,7 +46,7 @@ class Navbar extends Component {
     if (isAdminAuthenticated) {
       return (
         <AdminNavbar
-          signout={signout}
+          signout={this.handleSignout}
           cart={cart}
         />
       );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import TextFieldGroup from './TextFieldGroup.jsx';
+import TextFieldGroup from './TextFieldGroup';
 
 const ForgotPasswordForm = ({
   email,
@@ -47,10 +47,8 @@ const ForgotPasswordForm = ({
         id="back-to-login"
         to="#"
         onClick={onClickLoginButton}
-
       >
-Back to Login
-
+      Back to Login
       </Link>
     </form>
   </section>

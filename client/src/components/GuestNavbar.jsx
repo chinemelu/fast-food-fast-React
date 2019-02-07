@@ -16,7 +16,7 @@ const GuestNavbar = cart => (
       <Link to="customercart.html">
         <i className="fas fa-shopping-cart" />
         <span className="total-cart-quantity">
-          {cart.cart.cart.totalQuantity || cart.totalQuantity}
+          {cart.cart.cart.totalQuantity || 0}
         </span>
       </Link>
       <Link id="app-name" to="landingpage.html">Food-direct</Link>

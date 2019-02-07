@@ -14,7 +14,7 @@ const AdminNavbar = ({ signout, cart }) => (
       <Link to="/cart">
         <i className="fas fa-shopping-cart" />
         <span className="total-cart-quantity">
-          {cart.totalQuantity}
+          {cart.totalQuantity || 0}
         </span>
       </Link>
       <Link id="app-name" to="landingpage.html">Food-direct</Link>

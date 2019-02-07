@@ -1,8 +1,8 @@
-import setAuthorizationToken from '../utils/setAuthorizationToken.js';
-import { setCurrentUser } from './loginActions.js';
+import setAuthorizationToken from '../utils/setAuthorizationToken';
+import { setCurrentUser } from './loginActions';
 
 const logout = () => (dispatch) => {
-  localStorage.removeItem('token');
+  window.localStorage.clear();
   setAuthorizationToken(false);
   dispatch(setCurrentUser({}));
 };

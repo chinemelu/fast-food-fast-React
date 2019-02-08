@@ -1,16 +1,11 @@
-/* eslint-disable no-underscore-dangle */
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 
-const devTools = [
+
+export const store = createStore(rootReducer, compose(
   applyMiddleware(thunk),
-];
-
-export const store = createStore(
-  rootReducer,
-  compose(...devTools)
-);
-
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+));
 
 export default store;

@@ -1,0 +1,16 @@
+sudo: required
+language: node_js
+node_js:
+  - "stable"
+script:
+  - npm test -- -u
+env: 
+  global:
+    - NODE_ENV=test
+    - CC_TEST_REPORTER_ID=73b10ba0aaa5c4c2f5d0dd4eaad376ce18e660d6d00b0a62fc66c7183a6e8c95
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

@@ -9,7 +9,7 @@ import { fetchCartRequest } from '../actions/cartActions';
 import Spinner from '../components/Spinner';
 
 
-class Navbar extends Component {
+export class Navbar extends Component {
   componentDidMount() {
     const { getCartRequest } = this.props;
     getCartRequest();

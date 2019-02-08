@@ -25,6 +25,6 @@ export const loginRequest = userData => async (dispatch) => {
     dispatch(setCurrentUser(decodedToken));
     return loginResponse;
   } catch (error) {
-    return error.response.data;
+    return error.response;
   }
 };

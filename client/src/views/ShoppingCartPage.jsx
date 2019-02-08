@@ -21,7 +21,7 @@ class ShoppingCartPage extends Component {
   render() {
     const { cart } = this.props;
 
-    if (!Array.isArray(cart.items)) {
+    if (!Array.isArray(cart.items) || Object.keys(cart).length === 0) {
       return <Spinner />;
     }
 

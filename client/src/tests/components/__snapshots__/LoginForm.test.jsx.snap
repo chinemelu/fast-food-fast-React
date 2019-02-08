@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Login Page render Login Page renders the login page component 1`] = `
+<section
+  id="login-section"
+>
+  <form
+    autoComplete="off"
+    className="cd-form"
+    onSubmit={[Function]}
+  >
+    <Connect(FlashMessageList)
+      customAlertClass="login-alert"
+    />
+    <TextFieldGroup
+      className="input-field"
+      disabled={null}
+      error=""
+      feedbackClass="login-error-message"
+      field="email"
+      id="login-email"
+      inputContainerClass="input-container"
+      labelClass="input-label"
+      labelFor="login-username-email"
+      labelValue="Email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onInput={[Function]}
+      placeholder=""
+      type="text"
+      value="some@email.com"
+    />
+    <TextFieldGroup
+      className="input-field"
+      disabled={null}
+      error=""
+      feedbackClass="login-error-message"
+      field="password"
+      id="login-password"
+      inputContainerClass="input-container"
+      labelClass="input-label"
+      labelFor="login-password"
+      labelValue="Password"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onInput={[Function]}
+      placeholder=""
+      type="password"
+      value="password"
+    />
+    <TextFieldGroup
+      className="input-field"
+      disabled={null}
+      error=""
+      feedbackClass=""
+      id="remember-me"
+      inputContainerClass="input-container"
+      labelValue="Remember me"
+      onBlur={null}
+      placeholder=""
+      type="checkbox"
+    />
+    <TextFieldGroup
+      className="submit-form-btn"
+      disabled={true}
+      error=""
+      feedbackClass=""
+      id="login-form-btn"
+      inputContainerClass="input-container"
+      onBlur={null}
+      placeholder=""
+      type="submit"
+      value="LOGIN"
+    />
+    <Link
+      id="forgot-password"
+      onClick={[MockFunction]}
+      replace={false}
+      to="#"
+    >
+      Forgot password?
+    </Link>
+  </form>
+</section>
+`;

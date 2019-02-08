@@ -57,7 +57,6 @@ class LandingPage extends Component {
         <div
           className={`landingpage-modal ${isLoginRegistrationModalShown
             ? 'is-visible' : null}`}
-          ref={(node) => { this.modal = node; }}
           onClick={handleOutsideClick}
         >
           <div className="landingpage-modal-container">

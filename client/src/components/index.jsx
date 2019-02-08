@@ -1,4 +1,3 @@
-import SubmitButton from './SubmitButton';
 import FlashMessage from './FlashMessage';
 import FlashMessagesList from './FlashMessagesList';
 import TextFieldGroup from './TextFieldGroup';
@@ -21,7 +20,6 @@ import Payment from './Payment';
 import OrderHistory from './OrderHistory';
 
 export {
-  SubmitButton,
   FlashMessage,
   FlashMessagesList,
   TextFieldGroup,

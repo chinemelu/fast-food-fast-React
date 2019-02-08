@@ -12,7 +12,7 @@ import loginValidation from '../utils/loginValidation';
 import Spinner from '../components/Spinner';
 import signupValidation from '../utils/signupValidation';
 
-class LandingPageView extends Component {
+export class LandingPageView extends Component {
   constructor(props) {
     super(props);
     this.state = {

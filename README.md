@@ -10,6 +10,19 @@ Fast-Food-Fast​ is a food delivery service app for a restaurant.
 * Using HTTPS; copy and paste the following below on your terminal
 >```https://github.com/chinemelu/fast-food-fast-React.git```
 
+## Running the tests
+* The tests have been written using Jest and Enzyme.
+* cd into the folder
+*  Write the following command on terminal.
+* ```npm install```
+* Write the following command on terminal.
+* ```npm test```
+* If the tests are successful, they will complete without failures or errors.
+  ```
+  .........
+  ----------------------------------------------------------------------
+    95 passing
+  ```
 
 ### Front End Dependencies
 * [Font Awesome](http://fontawesome.io/) -font and CSS toolkit

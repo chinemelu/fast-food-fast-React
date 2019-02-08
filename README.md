@@ -24,7 +24,7 @@ Fast-Food-Fast​ is a food delivery service app for a restaurant.
     95 passing
   ```
 ## Deployment
-* copy this link `https://fast-food-fast-react-redux.herokuapp.com/login`
+* Click on this link [Hosted App]('https://fast-food-fast-react-redux.herokuapp.com/login')
 * Using Postman, and the url above as a prefix, e.g ` https://fast-food-fast-react-redux.herokuapp.com/login`
 utilise every endpoint in this application a with any of these headers: 
 key: Content-Type value: `application/json`  

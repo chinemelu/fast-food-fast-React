@@ -1,8 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
-
-import rootReducer from '../_reducers';
+import rootReducer from '../reducers';
 
 const middleware = [thunk];
 
@@ -17,7 +15,7 @@ if (process.env.NODE_ENV === 'production') {
   )(createStore);
 } else {
   createStoreWithMiddleware = compose(
-    applyMiddleware(...middleware, logger),
+    applyMiddleware(...middleware),
     useReduxDevTools()
   )(createStore);
 }

@@ -1,6 +1,10 @@
 {
   "name": "fast-food-fast-react",
   "version": "1.0.0",
+  "engines": {
+    "npm": "6.5.0",
+    "node": "10.13.0"
+  },
   "description": "Convert fast food fast frontend to Reactjs",
   "main": "app.js",
   "scripts": {

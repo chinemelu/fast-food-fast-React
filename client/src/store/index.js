@@ -22,6 +22,6 @@ if (process.env.NODE_ENV === 'production') {
   )(createStore);
 }
 
-const store = createStoreWithMiddleware(rootReducer);
+export const store = createStoreWithMiddleware(rootReducer);
 
 export default store;

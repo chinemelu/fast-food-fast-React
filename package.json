@@ -62,7 +62,6 @@
     "html-webpack-plugin": "3.2.0",
     "jest": "24.0.0",
     "moxios": "^0.4.0",
-    "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.3",
     "sinon": "^7.2.3",
     "style-loader": "0.23.1",
@@ -86,7 +85,6 @@
     "react-redux": "6.0.0",
     "react-router-dom": "4.3.1",
     "redux": "4.0.1",
-    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "2.3.0",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1"
